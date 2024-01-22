@@ -1,5 +1,9 @@
 # Load Balancer
 
+
+https://github.com/manthanguptaa/load-balancer/assets/42516515/57bf3db1-7860-4c62-aaee-f282dc0f81af
+
+
 **A Lightweight, go-based Load Balancer with Active-Passive Server Management and Periodic Health Checks.**
 
 This project implements a simple load balancer in Golang that distributes incoming requests amongst a pool of backend servers while monitoring their health. It features:
@@ -17,7 +21,7 @@ This project implements a simple load balancer in Golang that distributes incomi
 **Getting Started:**
 
 1. **Requirements:** Golang 1.17+
-2. **Clone Respository:**
+2. **Clone Repository:**
     ```bash
     $ git clone https://github.com/manthanguptaa/load-balancer.git
     ```
