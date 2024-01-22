@@ -5,7 +5,8 @@ import (
 	"net/http"
 )
 
-const url = "http://localhost:8080"
+var url = [2]string{"http://localhost:8080", "http://localhost:8081"}
+var round_robin = 0
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Received request from %s\n", r.RemoteAddr)
@@ -14,12 +15,13 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("User-Agent: %s\n", r.UserAgent())
 	fmt.Printf("Accept: %s\n", r.Header.Get("Accept"))
 
-	req, err := http.NewRequest(r.Method, url, nil)
+	req, err := http.NewRequest(r.Method, url[round_robin%len(url)], nil)
 	if err != nil {
 		fmt.Println("Error creating request:", err)
 		return
 	}
 
+	round_robin++
 	req.Header = r.Header
 	req.Host = r.Host
 	req.RemoteAddr = r.RemoteAddr
